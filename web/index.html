@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S1 FLIES</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>S1 FLIES</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="book.html">Book a Flight</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Flight Comparison Tool HTML -->
+<section class="section">
+    <h2>Flight Comparison Tool</h2>
+    <button onclick="showComparison()">Compare Flights</button>
+    <div id="comparisonResults"></div>
+</section>
+
+<script>
+const flights = [
+    { name: "Flight A", price: 300, duration: "2h", layovers: 0 },
+    { name: "Flight B", price: 250, duration: "3h", layovers: 1 },
+    { name: "Flight C", price: 200, duration: "4h", layovers: 2 },
+];
+
+function showComparison() {
+    let results = "<h3>Flight Comparison</h3><ul>";
+    flights.forEach(flight => {
+        results += `<li>${flight.name} - $${flight.price}, Duration: ${flight.duration}, Layovers: ${flight.layovers}</li>`;
+    });
+    results += "</ul>";
+    document.getElementById("comparisonResults").innerHTML = results;
+}
+</script>
+<!-- Real-Time Flight Tracking HTML -->
+<section class="section">
+    <h2>Real-Time Flight Tracking</h2>
+    <button onclick="trackFlight()">Track Flight</button>
+    <div id="trackingResults"></div>
+</section>
+
+<script>
+function trackFlight() {
+    const statuses = ["On Time", "Delayed", "Cancelled"];
+    const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+    document.getElementById("trackingResults").innerHTML = `<p>Flight Status: ${randomStatus}</p>`;
+}
+</script>
+<!-- User Reviews and Ratings HTML -->
+<section class="section">
+    <h2>User Reviews and Ratings</h2>
+    <textarea id="reviewInput" placeholder="Write your review..."></textarea>
+    <button onclick="submitReview()">Submit Review</button>
+    <div id="reviewsList"></div>
+</section>
+
+<script>
+let reviews = [];
+
+function submitReview() {
+    const review = document.getElementById("reviewInput").value;
+    if (review) {
+        reviews.push(review);
+        document.getElementById("reviewInput").value = ""; // Clear input
+        displayReviews();
+    } else {
+        alert("Please enter a review.");
+    }
+}
+
+function displayReviews() {
+    const reviewsList = reviews.map(review => `<p>${review}</p>`).join("");
+    document.getElementById("reviewsList").innerHTML = `<h3>User Reviews</h3>${reviewsList}`;
+}
+</script>
+
+    <section id="home" class="section">
+        <h2>Welcome to FlyHigh</h2>
+        <p>Book affordable flights with ease and comfort.</p>
+        <div class="search-bar">
+            <input type="text" id="search-flight" placeholder="Search for flights by destination">
+            <button onclick="searchFlight()">Search</button>
+        </div>
+        <div id="flight-results"></div>
+    </section>
+
+    <footer>
+        <p>&copy; S1 Flies</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

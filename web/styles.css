@@ -1,0 +1,219 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #181818; /* Dark background for a bold theme */
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05)), linear-gradient(225deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05)); /* Subtle pattern */
+}
+
+header {
+    background: linear-gradient(135deg, #e91e63, #f44336); /* Gradient background */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4); /* Strong shadow for depth */
+    border-radius: 8px;
+    animation: fadeIn 0.5s ease; /* Fade-in animation */
+}
+
+header h1 {
+    font-size: 2.5rem; /* Larger heading size */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Strong glow effect */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold; /* Bold links */
+    transition: color 0.3s, transform 0.3s; /* Transition effects */
+}
+
+nav ul li a:hover {
+    color: #ffeb3b; /* Bright yellow on hover */
+    transform: scale(1.1); /* Slight scaling effect */
+}
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: space-around; /* Space out sections */
+    margin: 20px;
+}
+
+.section {
+    flex: 1 1 30%; /* Flex property for responsive sizing */
+    margin: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0); /* Gradient background for sections */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    transition: transform 0.3s; /* Transition for hover effect */
+}
+
+.section:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+}
+
+h2 {
+    color: #333;
+    text-align: center; /* Center heading text */
+    position: relative; /* Positioning for glow */
+}
+
+h2::after {
+    content: ''; /* Pseudo-element for glow */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(233, 30, 99, 0.2); /* Soft pink glow */
+    border-radius: 10px; /* Rounded corners */
+    transform: translate(-50%, -50%); /* Centering */
+    z-index: -1; /* Behind the heading */
+}
+
+.search-bar,
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input,
+button {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transition for focus */
+}
+
+input:focus {
+    border-color: #e91e63; /* Pink border on focus */
+    box-shadow: 0 0 5px rgba(233, 30, 99, 0.5); /* Glow effect on focus */
+    outline: none; /* Remove default outline */
+}
+
+button {
+    background: linear-gradient(135deg, #e91e63, #f44336); /* Gradient background for buttons */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Transition for button */
+}
+
+button:hover {
+    background: linear-gradient(135deg, #d81b60, #f44336); /* Darker gradient on hover */
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Footer Styles */
+footer {
+    background: linear-gradient(135deg, #e91e63, #f44336); /* Footer gradient background */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start transparent */
+    }
+    to {
+        opacity: 1; /* Fade to visible */
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        padding: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .main-content {
+        flex-direction: column; /* Stack sections on smaller screens */
+    }
+
+    .section {
+        flex: 1 1 90%; /* Full width on small screens */
+        margin: 10px 0; /* Reduced margins */
+        padding: 15px;
+    }
+
+    .search-bar,
+    form {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    input,
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 1.2rem;
+    }
+
+    nav ul {
+        padding: 0;
+    }
+
+    .section {
+        padding: 10px;
+    }
+
+    input,
+    button {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+.section {
+    text-align: center; /* Center text and inline elements */
+}
+
+/* Center buttons */
+button {
+    margin: 10px auto; /* Center the button with margin */
+    display: inline-block; /* Ensure it behaves as an inline element */
+}
